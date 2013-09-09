@@ -36,6 +36,7 @@ import com.eviware.soapui.support.UISupport;
 import com.eviware.soapui.support.action.swing.SwingActionDelegate;
 import com.eviware.soapui.support.components.JUndoableTextField;
 import com.eviware.soapui.support.components.JXToolBar;
+import com.eviware.soapui.support.editor.inspectors.httpheaders.HttpHeadersInspectorFactory;
 import com.eviware.soapui.support.propertyexpansion.PropertyExpansionPopupListener;
 import org.apache.xmlbeans.impl.values.XmlValueDisconnectedException;
 
@@ -84,6 +85,8 @@ public abstract class AbstractRestRequestDesktopPanel<T extends ModelItem, T2 ex
 		{
 			( ( RestParamProperty )param ).addPropertyChangeListener( restParamPropertyChangeListener );
 		}
+		getRequestEditor().getInspector( HttpHeadersInspectorFactory.INSPECTOR_ID ).activate();
+		super.getRequestEditor().getInspector(  HttpHeadersInspectorFactory.INSPECTOR_ID ).activate();
 	}
 
 	private void addPropertyChangeListenerToResource( T2 requestItem )
